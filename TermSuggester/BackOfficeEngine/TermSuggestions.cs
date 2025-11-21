@@ -11,7 +11,7 @@ namespace TermSuggester.BackOfficeEngine
             var normalizedCorpus = choices.Select(Sanitize).ToList();
 
             // Select terms that contain the searched term directly
-            var exactMatches = normalizedCorpus.Where(x => x.Contains(term)).ToList();
+            var exactMatches = normalizedCorpus.Where(x => x.Contains(term)).OrderBy(x => x.Length).ToList();
 
             
             // Select terms by computing their difference score            
